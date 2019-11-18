@@ -13,7 +13,7 @@ const server = new ApolloServer({
   resolvers: resolverObject
 });
 
-// change srever path
+//to change srever path we need applyMiddleware
 server.applyMiddleware({ app, path: "/query" });
 
 // The `listen` method launches a web server.

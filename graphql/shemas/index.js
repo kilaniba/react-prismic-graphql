@@ -1,6 +1,11 @@
 const typeDefinition = `
 type Query  {
-    greeting: String
-}`;
+    users: [User]
+}
+type User {
+    firstName:String
+    lastName:String
+}
+`;
 
 export default typeDefinition;
