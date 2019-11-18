@@ -1,7 +1,7 @@
 const typeDefinition = `
 scalar JSON
 type Query  {
-    testPage: [MyPage]
+    testPage: MyPage
 }
 type MyPage {
     title:JSON

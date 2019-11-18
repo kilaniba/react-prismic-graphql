@@ -1,17 +1,15 @@
 import React from "react";
+
 import "./App.css";
+import HomePage from "./HomePage";
+import { ApolloProvider } from "react-apollo";
+import graphqlClient from "./graphql";
 
-function App({ prismicCtx }) {
-  const { image, description, title } = prismicCtx;
-
+function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1> {title.length !== 0 && title[0].text} </h1>
-        <img src={image.url} className="App-logo" alt={image.alt} />
-        <p>{description.length !== 0 && description[0].text}</p>
-      </header>
-    </div>
+    <ApolloProvider client={graphqlClient.client}>
+      <HomePage />
+    </ApolloProvider>
   );
 }
 
