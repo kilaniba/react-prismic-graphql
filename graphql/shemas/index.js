@@ -1,10 +1,12 @@
 const typeDefinition = `
+scalar JSON
 type Query  {
-    users: [User]
+    testPage: [MyPage]
 }
-type User {
-    firstName:String
-    lastName:String
+type MyPage {
+    title:JSON
+    description:JSON
+    image:JSON
 }
 `;
 
