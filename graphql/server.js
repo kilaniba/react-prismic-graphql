@@ -1,5 +1,6 @@
 import typeDefinition from "./shemas";
 import resolverObject from "./resolvers";
+import { ApolloServer } from "apollo-server-express";
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const express = require("express");
@@ -7,16 +8,14 @@ const port = process.env.PORT || 9000;
 const app = express();
 
 app.use(bodyParser.json(), cors());
-
-const { makeExecutableSchema } = require("graphql-tools");
-
-const schema = makeExecutableSchema({
+const server = new ApolloServer({
   typeDefs: typeDefinition,
   resolvers: resolverObject
 });
 
-const { graphqlExpress, graphiqlExpress } = require("apollo-server-express");
+// change srever path
+server.applyMiddleware({ app, path: "/query" });
 
-app.use("/graphql", graphqlExpress({ schema }));
-app.use("/graphiql", graphiqlExpress({ endpointURL: "/graphql" }));
+// The `listen` method launches a web server.
+
 app.listen(port, () => console.log(`server is up and running ${port}`));
