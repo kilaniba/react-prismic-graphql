@@ -1,8 +1,8 @@
-import React from "react";
-import "whatwg-fetch";
-import { Query } from "react-apollo";
+import React from 'react';
+import 'whatwg-fetch';
+import { Query } from 'react-apollo';
 
-import gql from "graphql-tag";
+import gql from 'graphql-tag';
 
 // graphql query request
 
@@ -19,7 +19,7 @@ export default class HomePage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      prismicCtx: { image: { url: "", alt: "" }, description: [], title: [] }
+      prismicCtx: { image: { url: '', alt: '' }, description: [], title: [] },
     };
   }
 
@@ -30,7 +30,7 @@ export default class HomePage extends React.Component {
           if (loading) return null;
           if (!data || !data.testPage)
             return (
-              <h1>No Data, may be you have to start your graphql server</h1>
+              <h1>No Data,test may be you have to start your graphql server</h1>
             );
           if (error) return <h1>error occured</h1>;
           const { image, description, title } = data.testPage;
